@@ -1,6 +1,7 @@
 # valorbruto = 0
 #def resultado_final(desc_apli)
-      print(f""" VALORES
+      
+print(f""" VALORES
 
  """)
 #
