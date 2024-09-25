@@ -1,7 +1,5 @@
 import os
-
-def limpar_tela():
-    os.system("cls || clear")
+os.system("cls || clear")
 
 def exibir_menu():
     print("""\
@@ -34,7 +32,6 @@ def obter_nome_prato(codigo):
             return None
 
 def main():
-    limpar_tela()
     exibir_menu()
 
     pedidos = []
@@ -72,7 +69,27 @@ def main():
         preco = precos[codigo]
         print(f"Código: {codigo}, Nome: {nome}, Preço: R${preco:.2f}")
         total += preco
+    valorreal = 0
+    while True:
+        pagamento = input(f"\nQual seria a forma de pagamento? Caso for á vista, digite 'V'. Caso for credito, digite 'C' ")
+        if pagamento == "V":
+            valorreal = total - (total / 10)
+            des_acr = "sem desconto"
+            print("Pagamento escolhido: Á Vista")
+            print(f"Valor do desconto: -{total / 10} ")
+            break
+        elif pagamento == "C":
+            valorreal = total + (total / 10)
+            des_acr = "sem taxa"
+            print("Pagamento escolhido: Crédito")
+            print(f"Valor da taxa: +{total / 10} ")
+            break
+        else:
+            print("CODIGO INCORRETO, UTILIZE 'V' E 'C'")
+    
+    print(f"""Valor {des_acr}: {total:.2f}
+\nTotal a pagar: R${valorreal:.2f}
+""")
 
-    print(f"\nTotal a pagar: R${total:.2f}")
 
 main()
