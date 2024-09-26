@@ -61,17 +61,17 @@ def main():
         if continuar.lower() != 'sim':
             break
 
-    print("\nVocê fez os seguintes pedidos:")
-    total = 0
-
-    for codigo in pedidos:
-        nome = obter_nome_prato(codigo)
-        preco = precos[codigo]
-        print(f"Código: {codigo}, Nome: {nome}, Preço: R${preco:.2f}")
-        total += preco
-    valorreal = 0
+        print("\nVocê fez os seguintes pedidos:")
+        total = 0
+    
+        for codigo in pedidos:
+            nome = obter_nome_prato(codigo)
+            preco = precos[codigo]
+            print(f"Código: {codigo}, Nome: {nome}, Preço: R${preco:.2f}")
+            total += preco
+            valorreal = 0
     while True:
-        pagamento = input(f"\nQual seria a forma de pagamento? Caso for á vista, digite 'V'. Caso for credito, digite 'C' ")
+        pagamento = input(f"\nQual seria a forma de pagamento? Caso for á vista, digite 'V'. Caso for credito, digite 'C': ")
         if pagamento == "V":
             valorreal = total - (total / 10)
             des_acr = "sem desconto"
